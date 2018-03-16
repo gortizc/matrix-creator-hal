@@ -13,7 +13,7 @@ FIND_LIBRARY(WIRINGPI_LIB NAMES wiringPi)
 FIND_LIBRARY(WIRINGPI_DEV_LIB NAMES wiringPiDev)
 FIND_LIBRARY(CRYPT_LIB NAMES crypt)
 FIND_LIBRARY(GFLAGS_LIB NAMES gflags)
-message(STATUS "gflags found =>" "${GFLAGS_LIB}") 
+message(STATUS "gflags found =>" "${GFLAGS_LIB}")
 
 add_subdirectory(../cpp/driver driver)
 
@@ -97,6 +97,12 @@ add_executable(firmware_info firmware_info.cpp)
   target_link_libraries(firmware_info matrix_creator_hal)
   target_link_libraries(firmware_info ${CMAKE_THREAD_LIBS_INIT})
 
+add_executable(gyro_calib gyro_calib.cpp)
+  set_property(TARGET gyro_calib PROPERTY CXX_STANDARD 11)
+  target_link_libraries(gyro_calib matrix_creator_hal)
+  target_link_libraries(gyro_calib ${CMAKE_THREAD_LIBS_INIT})
+
+
 add_executable(ipaddress_demo ipaddress_demo.cpp)
   set_property(TARGET ipaddress_demo PROPERTY CXX_STANDARD 11)
   target_link_libraries(ipaddress_demo matrix_creator_hal)
@@ -122,3 +128,7 @@ add_executable(uart_demo uart_demo.cpp)
   target_link_libraries(uart_demo ${CMAKE_THREAD_LIBS_INIT})
   target_link_libraries(uart_demo ${WIRINGPI_LIB} ${WIRINGPI_DEV_LIB} ${CRYPT_LIB})
 
+add_executable(compass_calib compass_calib.cpp)
+  set_property(TARGET compass_calib PROPERTY CXX_STANDARD 11)
+  target_link_libraries(compass_calib matrix_creator_hal)
+  target_link_libraries(compass_calib ${CMAKE_THREAD_LIBS_INIT})

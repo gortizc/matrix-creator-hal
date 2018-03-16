@@ -75,6 +75,14 @@ int main() {
               << "," << imu_data.accel_z << "}" << std::endl
               << std::endl;
 
+    std::cout << "gyro = {" << imu_data.gyro_x << ", " << imu_data.gyro_y
+              << "," << imu_data.gyro_z << "}" << std::endl
+              << std::endl;
+
+    std::cout << "mag = {" << imu_data.mag_x << ", " << imu_data.mag_y
+              << "," << imu_data.mag_z << "}" << std::endl
+              << std::endl;
+
     std::cout << "humidity = " << humidity_data.humidity << " %" << std::endl;
     std::cout << "temperature (from humidity sensor) = "
               << humidity_data.temperature << " °C" << std::endl
